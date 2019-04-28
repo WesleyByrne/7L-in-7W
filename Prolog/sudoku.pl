@@ -65,12 +65,12 @@ sudoku(Puzzle, Solution) :-
         Col5 = [S15, S25, S35, S45, S55, S65],
         Col6 = [S16, S26, S36, S46, S56, S66],
         
-        Square1 = [S11, S12, S21, S22, S31, S32],
-        Square2 = [S13, S14, S23, S24, S33, S34],
-        Square3 = [S15, S16, S25, S26, S35, S36],
-        Square4 = [S41, S42, S51, S52, S61, S62],
-        Square5 = [S43, S44, S53, S54, S63, S64],
-        Square6 = [S45, S46, S55, S56, S65, S66],
+        Square1 = [S11, S12, S13, S21, S22, S23],
+        Square2 = [S14, S15, S16, S24, S25, S26],
+        Square3 = [S31, S32, S33, S41, S42, S43],
+        Square4 = [S34, S35, S36, S44, S45, S46],
+        Square5 = [S51, S52, S53, S61, S62, S63],
+        Square6 = [S54, S55, S56, S64, S65, S66],
         
         
         valid([Row1, Row2, Row3, Row4, Row5, Row6,  
@@ -167,12 +167,20 @@ sudoku(Puzzle, Solution) :-
 
 %test queries:
 /**
-?- sudoku([4,5,6,_,2,1,
-        6,_,_,_,_,_,
-        _,1,_,_,6,4,
-        5,3,_,6,_,2,
-        1,4,5,_,_,6,
-        _,6,_,_,1,_], Solution).
+?- sudoku([3,_,4,_,5,2,
+        _,2,6,_,_,_,
+        _,6,_,2,1,5,
+        1,_,2,_,6,3,
+        _,3,1,_,_,4,
+        2,4,5,1,3,_], Solution).
+
+multiple solutions!? 
+?- sudoku([2,1,6,_,_,_,
+        3,_,_,1,2,6,
+        _,_,_,4,_,1,
+        1,4,3,2,6,_,
+        _,_,_,_,_,_,
+        _,3,_,6,5,2], Solution).
 
 ?- sudoku([8,7,_,_,_,_,_,_,_,
            _,_,_,_,1,_,_,6,2,
